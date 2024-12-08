@@ -1,21 +1,23 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(to right, Green, black); 
+}
+
+.container {
+  width: 80%; /* Ancho total */
+  margin: 0 auto; /* Centrar horizontalmente */
+  min-height: 80vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+  display: flex; /* Usamos flexbox para organizar el contenido */
+  flex-direction: column; /* Organiza el contenido en dirección vertical */
+  justify-content: center; /* Centra verticalmente los elementos */
+  align-items: center; /* Centra los elementos horizontalmente */
+}
+
+.button {
+  background-color: #27ae60; /* Verde oscuro */
+  color: white; /* Letra blanca */
+  padding: 10px 20px; /* Espaciado interior */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  font-size: 1rem; /* Tamaño de letra */
+  margin-bottom: 10px; /* Espaciado entre botones */
 }
