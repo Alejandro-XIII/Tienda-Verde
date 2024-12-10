@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(to right, Green, black); 
+background: linear-gradient(to bottom right, white, green);
 }
 
 .container {
@@ -13,11 +13,16 @@ body {
 }
 
 .button {
-  background-color: #27ae60; /* Verde oscuro */
+  background-color: black; /* Verde oscuro */
   color: white; /* Letra blanca */
   padding: 10px 20px; /* Espaciado interior */
   border: none; /* Sin borde */
   border-radius: 5px; /* Bordes redondeados */
   font-size: 1rem; /* Tamaño de letra */
   margin-bottom: 10px; /* Espaciado entre botones */
+}
+
+.title {
+  text-align: center;
+  color: green;
 }
