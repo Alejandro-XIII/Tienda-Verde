@@ -8,9 +8,7 @@ export default function CalcularPrecios() {
                 <Link href="/calcular-precios/alpina">
                     <button class="button">Alpina</button>
                 </Link>
-                <Link href="/">
-                    <button class="button">Volver</button>
-                </Link>
+                <Link href="/"><button class="button">Volver</button></Link>
             </div>
         </div>
     );
