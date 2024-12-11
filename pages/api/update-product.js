@@ -27,7 +27,7 @@ export default async function handler(req, res) {
             }
 
             const product = productData;
-            const precioAnterior = parseFloat(product.precio);
+            const precioAnterior = parseFloat(product.precio_venta);
             const cantidad = parseFloat(product.cantidad);
             const porcentaje = parseFloat(product.porcentaje);
             const valor_extra = parseFloat(product.valor_extra);
@@ -37,20 +37,25 @@ export default async function handler(req, res) {
                 return res.status(500).json({ error: 'Datos inválidos en la base de datos.' });
             }
 
-            // Calcular el precio
-            let precio = (total / cantidad) + (total / cantidad) * (porcentaje_extra / 100);
-            precio = precio + precio * (porcentaje / 100);
-            precio = Math.ceil(precio / 100) * 100 + valor_extra;
+            // Calcular el precio de compra y venta
+            const precio_compra = (total / cantidad) + (total / cantidad) * (porcentaje_extra / 100);
+            let precio_venta = precio_compra + precio_compra * (porcentaje / 100);
+            precio_venta = Math.ceil(precio_venta / 100) * 100 + valor_extra;
 
-            // Actualizar el precio en la base de datos
+            // Actualizar el precio de compra y venta en la base de datos
             const { error: updateError } = await supabase
                 .from('Productos')
-                .update({ precio: parseFloat(precio.toFixed(2)).toString() })
+                .update({
+                    precio_compra: parseFloat(precio_compra.toFixed(2)).toString(),
+                    precio_venta: parseFloat(precio_venta.toFixed(2)).toString()
+                })
                 .eq('id', productId);
 
             if (updateError) {
+                console.error('Error al actualizar precios:', updateError);
                 return res.status(500).json({ error: 'Error al actualizar el producto.' });
             }
+
 
             // Retornar producto actualizado junto con el precio anterior
             return res.status(200).json({

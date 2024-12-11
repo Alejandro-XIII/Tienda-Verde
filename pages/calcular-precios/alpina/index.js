@@ -21,7 +21,7 @@ export default function Alpina() {
             const result = await response.json();
 
             if (response.ok) {
-                alert(`Precio anterior: ${result.product.precioAnterior}\nNuevo precio: ${result.product.precio}`);
+                alert(`Precio anterior: ${result.product.precioAnterior}\nNuevo precio: ${result.product.precio_venta}`);
             } else {
                 alert(`Error: ${result.error}`);
             }
@@ -39,7 +39,7 @@ export default function Alpina() {
                 <button className="button" onClick={() => handleProductClick(3)}>Avena</button>
                 <button className="button" onClick={() => handleProductClick(4)}>Boggy</button>
                 <button className="button" onClick={() => handleProductClick(5)}>Bonyurt</button>
-                <button className="button" onClick={() => handleProductClick(6)}>Yogo cereal</button>
+                <button className="button" onClick={() => handleProductClick(10670)}>Yogo cereal</button>
                 <button className="button" onClick={() => handleProductClick(7)}>Cuchareable</button>
                 <button className="button" onClick={() => handleProductClick(8)}>Yogurt</button>
                 <Link href="/calcular-precios">
