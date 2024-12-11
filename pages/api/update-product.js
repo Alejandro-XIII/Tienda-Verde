@@ -57,13 +57,11 @@ export default async function handler(req, res) {
             }
 
 
-            // Retornar producto actualizado junto con el precio anterior
+            // Retornar los valores calculados
             return res.status(200).json({
                 success: true,
-                product: {
-                    ...product,
-                    precioAnterior: precioAnterior.toFixed(0)
-                }
+                precioAnterior: precioAnterior.toFixed(0),
+                precio_venta: precio_venta.toFixed(0)
             });
         } catch (error) {
             console.error(error);
