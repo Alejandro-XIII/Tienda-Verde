@@ -1,7 +1,12 @@
-import fs from 'fs';
-import path from 'path';
+import { createClient } from '@supabase/supabase-js';
 
-export default function handler(req, res) {
+// Importar variables de entorno
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_KEY;
+
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+export default async function handler(req, res) {
     if (req.method === 'POST') {
         const { productId, total } = req.body;
 
@@ -9,68 +14,55 @@ export default function handler(req, res) {
             return res.status(400).json({ error: 'Faltan parámetros.' });
         }
 
-        // Ruta al archivo productos.csv
-        const filePath = path.join(process.cwd(), 'data', 'productos.csv');
-
         try {
-            // Leer el archivo CSV
-            const data = fs.readFileSync(filePath, 'utf8');
-            const lines = data.split('\n');
-            const headers = lines[0].split(',');
+            // Consulta para obtener el producto correspondiente
+            const { data: productData, error: fetchError } = await supabase
+                .from('Productos')
+                .select('*')
+                .eq('id', productId)
+                .single();
 
-            // Parsear los datos del CSV
-            const products = lines.slice(1).map(line => {
-                const values = line.split(',');
-                return headers.reduce((obj, key, index) => {
-                    obj[key] = values[index];
-                    return obj;
-                }, {});
-            });
-
-            // Buscar el producto correspondiente
-            const productIndex = products.findIndex(p => p.id === String(productId));
-            if (productIndex === -1) {
+            if (fetchError) {
                 return res.status(404).json({ error: 'Producto no encontrado.' });
             }
 
-            const product = products[productIndex];
+            const product = productData;
             const precioAnterior = parseFloat(product.precio);
             const cantidad = parseFloat(product.cantidad);
             const porcentaje = parseFloat(product.porcentaje);
             const valor_extra = parseFloat(product.valor_extra);
             const porcentaje_extra = parseFloat(product.porcentaje_extra);
 
-            if (isNaN(cantidad) || isNaN(porcentaje) || isNaN(precioAnterior)|| isNaN(valor_extra)|| isNaN(porcentaje_extra)) {
-                return res.status(500).json({ error: 'Datos inválidos en el archivo CSV.' });
+            if (isNaN(cantidad) || isNaN(porcentaje) || isNaN(precioAnterior) || isNaN(valor_extra) || isNaN(porcentaje_extra)) {
+                return res.status(500).json({ error: 'Datos inválidos en la base de datos.' });
             }
 
             // Calcular el precio
-            let precio = (total / cantidad) + (total / cantidad)*(porcentaje_extra / 100);
-            precio = precio + precio*(porcentaje / 100);
-            precio = Math.ceil(precio / 100) * 100  + valor_extra;
+            let precio = (total / cantidad) + (total / cantidad) * (porcentaje_extra / 100);
+            precio = precio + precio * (porcentaje / 100);
+            precio = Math.ceil(precio / 100) * 100 + valor_extra;
 
-            // Actualizar el precio en el producto
-            products[productIndex].precio = parseFloat(precio.toFixed(2)).toString();
+            // Actualizar el precio en la base de datos
+            const { error: updateError } = await supabase
+                .from('Productos')
+                .update({ precio: parseFloat(precio.toFixed(2)).toString() })
+                .eq('id', productId);
 
-            // Escribir los cambios en el archivo CSV
-            const updatedData = [
-                headers.join(','),
-                ...products.map(p => `${p.id},${p.nombre},${p.precio},${p.cantidad},${p.porcentaje},${p.empresa},${p.valor_extra},${p.porcentaje_extra}`)
-            ].join('\n');
-
-            fs.writeFileSync(filePath, updatedData, 'utf8');
+            if (updateError) {
+                return res.status(500).json({ error: 'Error al actualizar el producto.' });
+            }
 
             // Retornar producto actualizado junto con el precio anterior
-            return res.status(200).json({ 
-                success: true, 
-                product: { 
-                    ...products[productIndex], 
-                    precioAnterior: precioAnterior.toFixed(0) 
-                } 
+            return res.status(200).json({
+                success: true,
+                product: {
+                    ...product,
+                    precioAnterior: precioAnterior.toFixed(0)
+                }
             });
         } catch (error) {
             console.error(error);
-            return res.status(500).json({ error: 'Error procesando el archivo.' });
+            return res.status(500).json({ error: 'Error procesando la solicitud.' });
         }
     } else {
         res.setHeader('Allow', ['POST']);
