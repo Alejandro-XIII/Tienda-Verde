@@ -5,9 +5,8 @@ export default function CalcularPrecios() {
         <div>
             <h1 class="title">Calcular precios</h1>
             <div class="container">
-                <Link href="/calcular-precios/alpina">
-                    <button class="button">Alpina</button>
-                </Link>
+                <Link href="/calcular-precios/alpina"><button class="button">Alpina</button></Link>
+                <Link href="/calcular-precios/caceritas"><button class="button">Caceritas</button></Link>
                 <Link href="/"><button class="button">Volver</button></Link>
             </div>
         </div>
