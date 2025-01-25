@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-export default function Distrimundo() {
+export default function Macroval() {
     const handleProductClick = async (productId) => {
         // Pedir al usuario que ingrese un valor total
-        const total = parseFloat(prompt('Vr. Unit.:'));
+        const total = parseFloat(prompt('VLR UNIT:'));
         if (isNaN(total) || total <= 0) {
             alert('Por favor, ingrese un número válido.');
             return;
@@ -32,14 +32,13 @@ export default function Distrimundo() {
 
     return (
         <div>
-            <h1 className="title">Distrimundo</h1>
+            <h1 className="title">Macroval</h1>
             <div className="container">
-                <button className="button" onClick={() => handleProductClick(7742)}>CHORIZO DE POLLO BUCANERO</button>
-                <button className="button" onClick={() => handleProductClick(4950)}>MANGUERA X LIBRA PAULANDIA</button>
-                <button className="button" onClick={() => handleProductClick(4490)}>PATAS MAKRO POLLO</button>
-                <button className="button" onClick={() => handleProductClick(9928)}>PATAS Y CABEZAS PAULANDIA</button>
-                <button className="button" onClick={() => handleProductClick(3960)}>PATAS Y PESCUEZ TIP TOP</button>
-                <button className="button" onClick={() => handleProductClick(2195)}>RECORTE CORRIENTE DON POLLO</button>
+                <button className="button" onClick={() => handleProductClick(12573123)}>COCOSETTE MINI WAFER 12(22X25G) CO</button>
+                <button className="button" onClick={() => handleProductClick(12573132)}>COCOSETTE SANDWICH 24X767.2G PR 14/12 CO</button>
+                <button className="button" onClick={() => handleProductClick(12056094)}>MAGGI SOPA COSTILLA FIDEO 24X65G CO</button>
+                <button className="button" onClick={() => handleProductClick(12056092)}>MAGGI SOPA GALLINA CON FIDEOS 24X65G CO</button>
+                <button className="button" onClick={() => handleProductClick(12408820)}>SALTINAS DORE 24(9X23G) CO</button>
                 <Link href="/calcular-precios"><button className="button">Volver</button></Link>
             </div>
         </div>

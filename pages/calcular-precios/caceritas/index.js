@@ -34,11 +34,11 @@ export default function Caceritas() {
         <div>
             <h1 className="title">Caceritas</h1>
             <div className="container">
-                <button className="button" onClick={() => handleProductClick(432001)}>Bocadillo lonja</button>
-                <button className="button" onClick={() => handleProductClick(408004)}>Bocadillo restaurante</button>
-                <button className="button" onClick={() => handleProductClick(407014)}>Mac Candy cereza</button>
-                <button className="button" onClick={() => handleProductClick(407012)}>Mac Candy mango biche</button>
-                <button className="button" onClick={() => handleProductClick(421001)}>Papas de limón</button>
+                <button className="button" onClick={() => handleProductClick(432001)}>Bocadillo Lonja X 100g</button>
+                <button className="button" onClick={() => handleProductClick(407014)}>Mac Candy R Cereza X 30 Und</button>
+                <button className="button" onClick={() => handleProductClick(407012)}>Mac Candy R Mango Biche X 30 Und</button>
+                <button className="button" onClick={() => handleProductClick(408004)}>Nar Bocadillo Restaurante X50 Un</button>
+                <button className="button" onClick={() => handleProductClick(421001)}>Papa Limon X 80 Gr</button>
                 <Link href="/calcular-precios">
                     <button className="button">Volver</button>
                 </Link>

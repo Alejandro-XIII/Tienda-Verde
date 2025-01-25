@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-export default function Distrimundo() {
+export default function Diana() {
     const handleProductClick = async (productId) => {
         // Pedir al usuario que ingrese un valor total
-        const total = parseFloat(prompt('Vr. Unit.:'));
+        const total = parseFloat(prompt('VR UNITARIO (Antes de impuestos):'));
         if (isNaN(total) || total <= 0) {
             alert('Por favor, ingrese un número válido.');
             return;
@@ -34,12 +34,8 @@ export default function Distrimundo() {
         <div>
             <h1 className="title">Distrimundo</h1>
             <div className="container">
-                <button className="button" onClick={() => handleProductClick(7742)}>CHORIZO DE POLLO BUCANERO</button>
-                <button className="button" onClick={() => handleProductClick(4950)}>MANGUERA X LIBRA PAULANDIA</button>
-                <button className="button" onClick={() => handleProductClick(4490)}>PATAS MAKRO POLLO</button>
-                <button className="button" onClick={() => handleProductClick(9928)}>PATAS Y CABEZAS PAULANDIA</button>
-                <button className="button" onClick={() => handleProductClick(3960)}>PATAS Y PESCUEZ TIP TOP</button>
-                <button className="button" onClick={() => handleProductClick(2195)}>RECORTE CORRIENTE DON POLLO</button>
+                <button className="button" onClick={() => handleProductClick(3040520)}>AGUA GLACIAL PQ 18unx620mlPET</button>
+                <button className="button" onClick={() => handleProductClick(3070454)}>GUSTOSITA BARRA CJ 24D X 4 X 125G</button>
                 <Link href="/calcular-precios"><button className="button">Volver</button></Link>
             </div>
         </div>
