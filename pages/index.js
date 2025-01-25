@@ -8,9 +8,6 @@ export default function Home() {
         <Image src="/titulo.png" width={200} height={100} priority />
       </div>
       <div class="container">
-      <Link href="/calcular-precios-prueba">
-          <button class="button">Calcular precios prueba</button>
-        </Link>
         <Link href="/calcular-precios">
           <button class="button">Calcular precios</button>
         </Link>
