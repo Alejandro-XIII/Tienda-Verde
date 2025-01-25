@@ -1,59 +1,51 @@
-import { useState } from "react";
-import dynamic from "next/dynamic";
-
-// Cargar react-qr-scanner dinámicamente para evitar problemas en el SSR
-const QrScanner = dynamic(() => import("react-qr-scanner"), { ssr: false });
+import { useEffect, useRef, useState } from "react";
+import { Html5QrcodeScanner } from "html5-qrcode";
 
 export default function CalcularPreciosPrueba() {
+  const qrCodeContainerRef = useRef(null);
   const [qrData, setQrData] = useState("No se ha escaneado ningún código QR");
 
-  const handleScan = (data) => {
-    if (data) {
-      setQrData(data.text); // Almacena el texto del QR escaneado
-    }
-  };
+  useEffect(() => {
+    // Configuración del escáner
+    const qrScanner = new Html5QrcodeScanner(
+      qrCodeContainerRef.current.id,
+      {
+        fps: 10, // Cuadros por segundo
+        qrbox: 250, // Tamaño del área de escaneo (en píxeles)
+        aspectRatio: 1,
+        videoConstraints: {
+          facingMode: "environment", // Usar la cámara trasera
+        },
+      },
+      false
+    );
 
-  const handleError = (err) => {
-    console.error("Error al escanear el QR:", err);
-  };
+    qrScanner.render(
+      (decodedText) => {
+        setQrData(decodedText); // Guardar el texto del QR
+        qrScanner.clear(); // Detener el escáner después de leer
+      },
+      (errorMessage) => {
+        console.error("Error al escanear:", errorMessage);
+      }
+    );
 
-  const previewStyle = {
-    height: 300,
-    width: 300,
-    position: "relative",
-  };
-
-  const videoConstraints = {
-    facingMode: { exact: "environment" }, // Usar cámara trasera
-  };
+    // Limpieza al desmontar el componente
+    return () => {
+      qrScanner.clear().catch((error) => console.error("Error limpiando:", error));
+    };
+  }, []);
 
   return (
     <div>
-      <h1 className="title">Calcular precios</h1>
+      <h1 style={{ textAlign: "center", color: "white" }}>Calcular precios</h1>
       <div className="container" style={{ textAlign: "center" }}>
-        <div style={previewStyle}>
-          <QrScanner
-            delay={300}
-            style={{ height: "100%", width: "100%" }}
-            onError={handleError}
-            onScan={handleScan}
-            constraints={{ video: videoConstraints }}
-          />
-          {/* Línea roja para simular un escáner */}
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: "10%",
-              right: "10%",
-              height: "2px",
-              backgroundColor: "red",
-              transform: "translateY(-50%)",
-              zIndex: 2,
-            }}
-          ></div>
-        </div>
-        <p>Resultado: {qrData}</p>
+        <div
+          id="qr-reader"
+          ref={qrCodeContainerRef}
+          style={{ width: "100%", maxWidth: "300px", margin: "0 auto" }}
+        ></div>
+        <p style={{ color: "white" }}>Resultado: {qrData}</p>
       </div>
     </div>
   );
