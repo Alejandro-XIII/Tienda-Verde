@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-export default function Macroval() {
+export default function Serdistat() {
     const handleProductClick = async (productId) => {
         // Pedir al usuario que ingrese un valor total
-        const total = parseFloat(prompt('VLR UNIT:'));
+        const total = parseFloat(prompt('Unitario:'));
         if (isNaN(total) || total <= 0) {
             alert('Por favor, ingrese un número válido.');
             return;
@@ -32,14 +32,11 @@ export default function Macroval() {
 
     return (
         <div>
-            <h1 className="title">Macroval</h1>
+            <h1 className="title">Serdistat</h1>
             <div className="container">
-                <button className="button" onClick={() => handleProductClick(12573123)}>COCOSETTE MINI WAFER 12(22X25G) CO</button>
-                <button className="button" onClick={() => handleProductClick(12573132)}>COCOSETTE SANDWICH 24X767.2G PR 14/12 CO</button>
-                <button className="button" onClick={() => handleProductClick(12056094)}>MAGGI SOPA COSTILLA FIDEO 24X65G CO</button>
-                <button className="button" onClick={() => handleProductClick(12056092)}>MAGGI SOPA GALLINA CON FIDEOS 24X65G CO</button>
-                <button className="button" onClick={() => handleProductClick(12575767)}>NESTLE KLIM FORTICRECE 40(16X26G) N1 CO</button>
-                <button className="button" onClick={() => handleProductClick(12408820)}>SALTINAS DORE 24(9X23G) CO</button>
+                <button className="button" onClick={() => handleProductClick(56299)}>BLANQUEADOR FRESCURA OCEANICA X500 X 6</button>
+                <button className="button" onClick={() => handleProductClick(56453)}>DETER LIQ BLANCOX ROPA OSCURA DOYPACK X 1800</button> 
+                <button className="button" onClick={() => handleProductClick(26305)}>ELITE P.H ROLLAZO 1/2 PACA (ROJO) X 12</button>               
                 <Link href="/calcular-precios"><button className="button">Volver</button></Link>
             </div>
         </div>

@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-export default function Macroval() {
+export default function Expertiendas() {
     const handleProductClick = async (productId) => {
         // Pedir al usuario que ingrese un valor total
-        const total = parseFloat(prompt('VLR UNIT:'));
+        const total = parseFloat(prompt('Precio:'));
         if (isNaN(total) || total <= 0) {
             alert('Por favor, ingrese un número válido.');
             return;
@@ -32,14 +32,11 @@ export default function Macroval() {
 
     return (
         <div>
-            <h1 className="title">Macroval</h1>
+            <h1 className="title">Expertiendas</h1>
             <div className="container">
-                <button className="button" onClick={() => handleProductClick(12573123)}>COCOSETTE MINI WAFER 12(22X25G) CO</button>
-                <button className="button" onClick={() => handleProductClick(12573132)}>COCOSETTE SANDWICH 24X767.2G PR 14/12 CO</button>
-                <button className="button" onClick={() => handleProductClick(12056094)}>MAGGI SOPA COSTILLA FIDEO 24X65G CO</button>
-                <button className="button" onClick={() => handleProductClick(12056092)}>MAGGI SOPA GALLINA CON FIDEOS 24X65G CO</button>
-                <button className="button" onClick={() => handleProductClick(12575767)}>NESTLE KLIM FORTICRECE 40(16X26G) N1 CO</button>
-                <button className="button" onClick={() => handleProductClick(12408820)}>SALTINAS DORE 24(9X23G) CO</button>
+                <button className="button" onClick={() => handleProductClick(7204366)}>18 PROTECTORES DIARIOX15</button>  
+                <button className="button" onClick={() => handleProductClick(7204099)}>24 FAMILIAR</button>  
+                <button className="button" onClick={() => handleProductClick(7204373)}>24 MEGA EXTRACONT</button>               
                 <Link href="/calcular-precios"><button className="button">Volver</button></Link>
             </div>
         </div>
