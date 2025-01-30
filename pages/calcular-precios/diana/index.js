@@ -32,10 +32,13 @@ export default function Diana() {
 
     return (
         <div>
-            <h1 className="title">Distrimundo</h1>
+            <h1 className="title">Diana</h1>
             <div className="container">
                 <button className="button" onClick={() => handleProductClick(3040520)}>AGUA GLACIAL PQ 18unx620mlPET</button>
+                <button className="button" onClick={() => handleProductClick(3000001)}>ARROZ DIANA PQ 25unx500g</button>
                 <button className="button" onClick={() => handleProductClick(3070454)}>GUSTOSITA BARRA CJ 24D X 4 X 125G</button>
+                <button className="button" onClick={() => handleProductClick(3085124)}>SALSA MAYO FRUGAL CJ 6DISx12unx80g</button>
+                <button className="button" onClick={() => handleProductClick(3085083)}>SALSA TOMATE FRUGAL CJ 6Disx12unx80g</button>
                 <Link href="/calcular-precios"><button className="button">Volver</button></Link>
             </div>
         </div>

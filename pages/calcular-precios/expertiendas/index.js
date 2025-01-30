@@ -36,7 +36,8 @@ export default function Expertiendas() {
             <div className="container">
                 <button className="button" onClick={() => handleProductClick(7204366)}>18 PROTECTORES DIARIOX15</button>  
                 <button className="button" onClick={() => handleProductClick(7204099)}>24 FAMILIAR</button>  
-                <button className="button" onClick={() => handleProductClick(7204373)}>24 MEGA EXTRACONT</button>               
+                <button className="button" onClick={() => handleProductClick(7204373)}>24 MEGA EXTRACONT</button>
+                <button className="button" onClick={() => handleProductClick(201749)}>N. CLASICA X10</button>                
                 <Link href="/calcular-precios"><button className="button">Volver</button></Link>
             </div>
         </div>

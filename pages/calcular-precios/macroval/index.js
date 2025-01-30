@@ -36,6 +36,8 @@ export default function Macroval() {
             <div className="container">
                 <button className="button" onClick={() => handleProductClick(12573123)}>COCOSETTE MINI WAFER 12(22X25G) CO</button>
                 <button className="button" onClick={() => handleProductClick(12573132)}>COCOSETTE SANDWICH 24X767.2G PR 14/12 CO</button>
+                <button className="button" onClick={() => handleProductClick(12403907)}>LA LECHERA LCARISTRA 12(26x25G) CO</button>
+                <button className="button" onClick={() => handleProductClick(12565493)}>MAGGI CALDO COSTILLA DSMZDO 80X9G CO</button>
                 <button className="button" onClick={() => handleProductClick(12056094)}>MAGGI SOPA COSTILLA FIDEO 24X65G CO</button>
                 <button className="button" onClick={() => handleProductClick(12056092)}>MAGGI SOPA GALLINA CON FIDEOS 24X65G CO</button>
                 <button className="button" onClick={() => handleProductClick(12575767)}>NESTLE KLIM FORTICRECE 40(16X26G) N1 CO</button>

@@ -32,17 +32,22 @@ export default function JE() {
 
     return (
         <div>
-            <h1 className="title">Distrimundo</h1>
+            <h1 className="title">Distribuciones JE</h1>
             <div className="container">
                 <button className="button" onClick={() => handleProductClick(53002)}>AMOXICILINA CAPSULAS</button>
                 <button className="button" onClick={() => handleProductClick(42008)}>BIG BON XXL COCO X 48U</button>
                 <button className="button" onClick={() => handleProductClick(42006)}>BIG BON XXL X 48U</button>
                 <button className="button" onClick={() => handleProductClick(25001)}>BOMBA LISA R9 BOLSA X 100U</button>
                 <button className="button" onClick={() => handleProductClick(36025)}>CHICLE TATUAJE X 120U</button>
+                <button className="button" onClick={() => handleProductClick(28020)}>CHUPA SILICONA PEQUENA</button>
+                <button className="button" onClick={() => handleProductClick(56034)}>DES CAJA REXONA CLINICAL MUJER X 20U</button>
+                <button className="button" onClick={() => handleProductClick(56038)}>DES REXONA ROLLON 30GR DAMA</button>
                 <button className="button" onClick={() => handleProductClick(56039)}>DES REXONA ROLLON 30GR HOMBRE</button>
                 <button className="button" onClick={() => handleProductClick(13008)}>DES. PRACTI-CREMA SPEED 30GR</button>
                 <button className="button" onClick={() => handleProductClick(24031)}>ENCENDEDOR LED SURTIDO</button>
+                <button className="button" onClick={() => handleProductClick(19001)}>GEL MINI BACHUE 20 GR SOBRE TIRA X 36</button>
                 <button className="button" onClick={() => handleProductClick(23011)}>PEGA 8GR CARTON X 12U VERDE</button>
+                <button className="button" onClick={() => handleProductClick(32025)}>PLASTILINA EGAR PEQUENA X 9U</button>
                 <button className="button" onClick={() => handleProductClick(28007)}>SILICONA EN BARRA DELGADA</button>
                 <Link href="/calcular-precios"><button className="button">Volver</button></Link>
             </div>

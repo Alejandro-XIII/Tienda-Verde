@@ -34,15 +34,22 @@ export default function CocaCola() {
         <div>
             <h1 className="title">Coca Cola</h1>
             <div className="container">
+                <button className="button" onClick={() => handleProductClick(160048)}>AGUA BRISA BOTELLON 5 GL TAPA VALVULA</button>
                 <button className="button" onClick={() => handleProductClick(160047)}>AGUA BRISA PET 600ML (24)</button>
+                <button className="button" onClick={() => handleProductClick(160170)}>BRISA GAS LIM 280ML PET (24)</button>
                 <button className="button" onClick={() => handleProductClick(160168)}>BRISA PLAIN 280ML PET (24)</button>
+                <button className="button" onClick={() => handleProductClick(135664)}>COCA COLA 1.5LT PET(12) Nvo</button>
                 <button className="button" onClick={() => handleProductClick(135665)}>COCA COLA 2LT RP(9) Nvo</button>
                 <button className="button" onClick={() => handleProductClick(135662)}>COCA COLA 3LT PET(6) Nvo</button>
+                <button className="button" onClick={() => handleProductClick(160318)}>COCA COLA 400ML PET # (12)</button>
+                <button className="button" onClick={() => handleProductClick(135718)}>COCA COLA SO 8OZ VIR (30)</button>
                 <button className="button" onClick={() => handleProductClick(120118)}>FRESH CITRUS 1.5LT PET(12)NVO</button>
                 <button className="button" onClick={() => handleProductClick(120117)}>FRESH CITRUS 400ML PET (12)NVO</button>
                 <button className="button" onClick={() => handleProductClick(160870)}>FRUTAL MANGO 500ML PET(6)</button>
+                <button className="button" onClick={() => handleProductClick(56651)}>PREMIO ROJO FNT 1.5LT PET (12)</button>
                 <button className="button" onClick={() => handleProductClick(56709)}>QUATRO CHOICE 1.5LT PET (12)</button>
                 <button className="button" onClick={() => handleProductClick(56706)}>QUATRO CHOICE 400ML NR (12)</button>
+                <button className="button" onClick={() => handleProductClick(56704)}>QUATRO CHOICE 8OZ VIR (30)</button>
                 <Link href="/calcular-precios"><button className="button">Volver</button></Link>
             </div>
         </div>
