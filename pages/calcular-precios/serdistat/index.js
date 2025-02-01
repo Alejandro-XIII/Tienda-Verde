@@ -35,7 +35,6 @@ export default function Serdistat() {
             <h1 className="title">Serdistat</h1>
             <div className="container">
                 <button className="button" onClick={() => handleProductClick(56299)}>BLANQUEADOR FRESCURA OCEANICA X500 X 6</button>
-                <button className="button" onClick={() => handleProductClick(56453)}>DETER LIQ BLANCOX ROPA OSCURA DOYPACK X 1800</button> 
                 <button className="button" onClick={() => handleProductClick(26305)}>ELITE P.H ROLLAZO 1/2 PACA (ROJO) X 12</button>               
                 <Link href="/calcular-precios"><button className="button">Volver</button></Link>
             </div>
